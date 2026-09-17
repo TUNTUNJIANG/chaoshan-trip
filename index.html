@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="bh7CySweJRYvoDYlBrJagA">
+<head data-page-node-id="KFBUBI0KGoSBagNhmXFP0V">
+<meta charset="UTF-8" data-page-node-id="lqsd2ZUqPtGYV1yG7gN3GY">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" data-page-node-id="HCcWDkkkD9jNJP0SAeYMIE">
+<title>潮汕 5天4城 自驾环线</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="vtLWOsxCJSM8JMv5C1V1Kj">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet" data-page-node-id="lRmm6ZBzwAHxRcJ7EE84JH">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--bg:#f6f6f0;--card:#fff;--text:#1a1a1a;--sub:#888;--sep:#e8e6df;--red:#e74c3c;--orange:#f0932b;--blue:#3498db;--purple:#8e6de6;--green:#27ae60}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;max-width:480px;margin:0 auto;overflow-x:hidden}
+.tab-bar{position:sticky;top:0;z-index:100;background:var(--card);display:flex;border-bottom:1px solid var(--sep);padding:0 4px;overflow-x:auto;scrollbar-width:none}
+.tab-bar::-webkit-scrollbar{display:none}
+.tb{flex-shrink:0;padding:10px 12px;font-size:13px;font-weight:600;color:var(--sub);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s}
+.tb.active{color:var(--text);border-bottom-color:var(--text)}
+.countdown-card{background:var(--card);border-radius:16px;padding:18px 16px;margin:16px;box-shadow:0 2px 12px rgba(0,0,0,.06);text-align:center}
+.cc-label{font-size:12px;color:var(--sub);margin-bottom:2px}
+.cc-event{font-size:14px;font-weight:600;margin-bottom:8px}
+.cc-time{display:flex;justify-content:center;align-items:baseline;gap:0;margin:10px 0}
+.cc-num{font-size:36px;font-weight:900;color:var(--text);font-variant-numeric:tabular-nums;min-width:48px;text-align:center}
+.cc-unit{font-size:12px;color:var(--sub);margin-left:2px}
+.cc-sep{font-size:28px;color:var(--sub);margin:0 2px;font-weight:300}
+.cc-sub{font-size:11px;color:var(--sub);margin-top:6px}
+.flight-badges{display:flex;gap:10px;padding:0 16px;margin-bottom:16px}
+.fb{flex:1;background:var(--card);border-radius:14px;padding:14px;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.fb-route{font-size:14px;font-weight:700}
+.fb-meta{font-size:11px;color:var(--sub);margin:4px 0}
+.fb-cd{font-size:12px;color:var(--blue);font-weight:600}
+.map-card{background:var(--card);border-radius:16px;padding:16px;margin:16px;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.map-card h3{font-size:15px;font-weight:700;margin-bottom:10px}
+.map-wrap{padding:0}
+.map-wrap svg{width:100%;height:auto;border-radius:12px}
+.booking-card{background:var(--card);border-radius:16px;padding:16px;margin:16px;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.booking-card h3{font-size:15px;font-weight:700;margin-bottom:12px}
+.bk-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--sep);align-items:center}
+.bk-item:last-child{border-bottom:none}
+.bk-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+.bk-icon.flight{background:#e8f4fd}
+.bk-icon.hotel{background:#fef3cd}
+.bk-icon.car{background:#d4edda}
+.bk-icon.island{background:#e8f0f8}
+.bk-detail{flex:1}
+.bk-title{font-size:13px;font-weight:700;margin-bottom:2px}
+.bk-meta{font-size:11px;color:var(--sub);line-height:1.5}
+.day-header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 8px;font-size:15px;font-weight:700}
+.day-route-btn{font-size:11px;color:var(--blue);background:#e8f4fd;border:none;padding:4px 10px;border-radius:8px;cursor:pointer;font-weight:600}
+.day-timeline{padding:0 16px 16px}
+.dt-item{display:flex;gap:12px;padding-bottom:2px}
+.dt-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px;box-shadow:0 0 0 3px rgba(0,0,0,.04)}
+.dt-card{flex:1;background:var(--card);border-radius:12px;padding:12px;margin-bottom:8px;box-shadow:0 1px 6px rgba(0,0,0,.04);cursor:pointer;transition:transform .1s}
+.dt-card:active{transform:scale(.98)}
+.dt-time{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:2px}
+.dt-name{font-size:14px;font-weight:600}
+.dt-desc{font-size:12px;color:#555;margin:4px 0}
+.dt-budget{display:inline-block;margin-top:4px;padding:2px 8px;background:#f3f4f6;border-radius:6px;font-size:11px;color:var(--sub);font-weight:600}
+.dt-badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:4px;font-weight:700;margin-left:4px}
+.dt-badge.need{background:rgba(231,76,60,.1);color:var(--red)}
+.dt-badge.tip{background:rgba(142,109,230,.1);color:var(--purple)}
+.dt-gmap{display:inline-flex;align-items:center;gap:3px;margin-top:6px;font-size:12px;color:var(--blue);text-decoration:none;padding:4px 10px;background:#e8f4fd;border-radius:8px;font-weight:600}
+.day-route-overlay{background:var(--card);border-radius:12px;padding:14px;margin-bottom:12px;display:none}
+.day-route-overlay.show{display:block}
+.day-route-overlay svg{width:100%;height:auto}
+.todo-card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:16px;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.todo-card h3{font-size:15px;font-weight:700;margin-bottom:12px}
+.todo-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--sep);font-size:13px;line-height:1.5}
+.todo-item:last-child{border-bottom:none}
+.todo-item .todo-num{color:var(--sub);font-weight:600;min-width:20px}
+.tips-card{background:var(--card);border-radius:16px;padding:16px;margin:0 16px 16px;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.tips-card h3{font-size:15px;font-weight:700;margin-bottom:10px}
+.tip-block{margin-bottom:12px}
+.tip-block h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.tip-block p,.tip-block li{font-size:12px;color:#444;line-height:1.6}
+.tip-block ul{padding-left:16px}
+.footer{text-align:center;padding:20px;font-size:11px;color:var(--sub)}
+</style>
+</head>
+<body data-page-node-id="n2mawutwuT4SkTnG3t27NB">
+
+<div class="tab-bar" id="tabBar" data-page-node-id="1BATOssi1JG9Hz6Pq5Fv2F"></div>
+<div id="page" data-page-node-id="0P3PFjaX6WDE0s254n6AwE"></div>
+
+<script>
+const TZ_CN='+08:00';
+function parseTimeCN(d,t){return new Date(d+'T'+t+TZ_CN)}
+const NOW=()=>new Date();
+
+// === 行程日期 ===
+const TRIP_START='2026-10-21';
+const FLIGHT_OUT={date:'2026-10-21',time:'13:40',tz:TZ_CN};
+const FLIGHT_BACK={date:'2026-10-25',time:'17:40',tz:TZ_CN};
+
+const DAY_COLORS=['#e74c3c','#f0932b','#3498db','#8e6de6','#27ae60'];
+const DAY_LABELS=['D1','D2','D3','D4','D5'];
+const DAY_TITLES=['杭州→汕头·老城烟火','礐石·东海岸·橘子海落日','南澳岛·环岛灯塔之旅','南澳→潮州·古城灯光秀','揭阳·学宫古韵·返程'];
+const DAY_DATES=['10月21日 周三','10月22日 周四','10月23日 周五','10月24日 周六','10月25日 周日'];
+
+const LOCATIONS=[
+// D1: 杭州→汕头
+[
+  {time:'13:40',name:'杭州萧山机场出发 🛫',desc:'海南航空 HU7415 直飞揭阳 约1h50m 波音737',type:'transport',need:false,gmap:'杭州萧山国际机场'},
+  {time:'15:30',name:'抵达揭阳潮汕机场',desc:'取行李, 租车公司提车',type:'transport',need:true,gmap:'揭阳潮汕国际机场'},
+  {time:'16:15',name:'自驾→汕头市中心',desc:'约38km / 40min 高速直达',budget:'约 ¥120 租车/天',type:'transport',need:false,gmap:'汕头市'},
+  {time:'17:00',name:'酒店 Check-in',desc:'休整, 放行李',type:'hotel',need:false,gmap:'汕头特色建筑酒店'},
+  {time:'18:00',name:'杏花吴记牛肉火锅',desc:'首推! 五花趾/吊龙/匙柄/生丸 (晚市早去不用排太久)',budget:'人均 ¥80-120',type:'food',need:false,gmap:'杏花吴记牛肉火锅 汕头'},
+  {time:'19:30',name:'🌃 龙眼南路/珠江路夜市',desc:'生腌/肠粉/甜汤/卤鹅/甘草水果一网打尽',budget:'人均 ¥50-100',type:'food',need:false,gmap:'汕头龙眼南路美食街'},
+],
+// D2: 汕头深度游
+[
+  {time:'08:00',name:'汕头早茶',desc:'虾饺/凤爪/烧卖/牛肉丸, 慢悠悠叹茶',budget:'人均 ¥50-80',type:'food',need:false,gmap:'汕头早茶'},
+  {time:'09:30',name:'广场轮渡→礐石风景区',desc:'一元轮渡体验汕头人日常, 5分钟过海',budget:'¥1/人',type:'transport',need:false,gmap:'汕头广场轮渡'},
+  {time:'10:00',name:'礐石·索道上山',desc:'俯瞰汕头全景+礐石大桥',budget:'索道 ¥40/人',type:'spot',need:false,gmap:'礐石风景区'},
+  {time:'11:00',name:'礐石·滑道下山',desc:'超好玩! 丛林滑道一路冲下来',budget:'滑道 ¥30/人',type:'spot',need:false,gmap:'礐石滑道'},
+  {time:'12:00',name:'臻宝博物馆',desc:'了解潮汕非遗: 木雕/嵌瓷/抽纱/金漆画',type:'spot',need:false,gmap:'汕头臻宝博物馆'},
+  {time:'13:30',name:'午餐: 创新土鸡火锅',desc:'炭炉土鸡火锅, 汤底清甜鸡肉嫩滑',budget:'人均 ¥60-80',type:'food',need:false,gmap:'创新土鸡火锅 汕头'},
+  {time:'16:00',name:'东海岸公园',desc:'海风+草坪+堤坝, 傍晚最美',type:'spot',need:false,gmap:'汕头东海岸公园'},
+  {time:'16:30',name:'海浪咖啡 ☕',desc:'东海岸地标咖啡车, 面朝大海来一杯',budget:'¥25-35',type:'drink',need:false,gmap:'海浪咖啡 东海岸'},
+  {time:'17:30',name:'🌅 橘子海日落',desc:'天气好必看! 天空从橙渐变到粉紫',type:'spot',need:false,gmap:'东海岸日落'},
+  {time:'19:00',name:'🌃 珠江路美食街',desc:'吴记富苑猪脚/纪德来甜汤/百花小食店',budget:'人均 ¥60-100',type:'food',need:false,gmap:'汕头珠江路美食街'},
+],
+// D3: 南澳岛环岛
+[
+  {time:'08:00',name:'酒店早餐+退房',desc:'收拾行李, 告别汕头',type:'transport',need:false,gmap:''},
+  {time:'09:00',name:'自驾→南澳岛',desc:'南澳大桥 约45min, 过桥费 ¥96/车',budget:'过桥费 ¥96',type:'transport',need:true,gmap:'南澳大桥'},
+  {time:'10:00',name:'📍 长山尾灯塔',desc:'红色灯塔+海天一色, 上岛第一站打卡',type:'spot',need:false,gmap:'南澳长山尾灯塔'},
+  {time:'11:00',name:'📍 钱澳湾灯塔',desc:'白色灯塔藏在礁石群中, 超级出片',type:'spot',need:false,gmap:'南澳钱澳湾灯塔'},
+  {time:'12:00',name:'后宅镇 午餐',desc:'渔鲜潮食馆(强推!)或今晚大排档',budget:'人均 ¥80-120',type:'food',need:false,gmap:'南澳后宅镇'},
+  {time:'14:00',name:'民宿 Check-in',desc:'放行李休整, villa看海发呆',type:'hotel',need:false,gmap:'南澳岛民宿'},
+  {time:'15:30',name:'📍 三囱崖灯塔',desc:'岛上最著名的灯塔, 红白条纹经典',type:'spot',need:false,gmap:'南澳三囱崖灯塔'},
+  {time:'16:30',name:'📍 青澳湾 + 自然之门',desc:'岛上最大沙滩+北回归线标志',type:'spot',need:false,gmap:'南澳青澳湾'},
+  {time:'17:30',name:'📍 彩虹海',desc:'彩色浮标养殖场, 航拍圣地',type:'spot',need:false,gmap:'南澳彩虹海'},
+  {time:'19:00',name:'晚餐: 蓬记牛腩面',desc:'岛民最爱的牛腩面, 汤头浓郁',budget:'人均 ¥30-50',type:'food',need:false,gmap:'蓬记牛腩面 南澳'},
+  {time:'20:30',name:'然记糖水铺/捷信牛奶甜品',desc:'海岛夜宵: 芋圆/双皮奶/杨枝甘露',budget:'人均 ¥15-25',type:'food',need:false,gmap:'然记糖水铺 南澳'},
+],
+// D4: 南澳→潮州
+[
+  {time:'07:30',name:'可选出海打渔',desc:'跟渔民出海, 体验渔获乐趣(视成员意愿)',budget:'约 ¥100-150/人',type:'spot',need:false,gmap:'南澳岛出海打渔'},
+  {time:'11:00',name:'民宿退房',desc:'收拾行李, 准备离岛',type:'transport',need:false,gmap:''},
+  {time:'12:00',name:'午餐: 山禾海',desc:'岛上最后一餐, 海鲜收官',budget:'人均 ¥80-100',type:'food',need:false,gmap:'山禾海 南澳'},
+  {time:'13:30',name:'⚠️ 离岛自驾→潮州',desc:'约1.5h, 下午三点前必须出发!',type:'transport',need:true,gmap:'潮州市'},
+  {time:'15:30',name:'潮州酒店 Check-in',desc:'放行李休整',type:'hotel',need:false,gmap:'潮州古城酒店'},
+  {time:'16:30',name:'牌坊街 逛吃',desc:'22座明清石牌坊, 边吃边逛',type:'spot',need:false,gmap:'潮州牌坊街'},
+  {time:'17:30',name:'开元寺',desc:'粤东第一古刹, 唐代始建',type:'spot',need:false,gmap:'潮州开元寺'},
+  {time:'18:00',name:'镇海楼 → 广济楼',desc:'古城中轴线, 历史感拉满',type:'spot',need:false,gmap:'潮州广济楼'},
+  {time:'18:30',name:'广济桥',desc:'中国四大古桥之一, 十八梭船廿四洲',budget:'门票 ¥20',type:'spot',need:false,gmap:'潮州广济桥'},
+  {time:'20:00',name:'🎆 广济桥灯光秀',desc:'周一至周四仅20:00一场; 周末加场21:30',type:'spot',need:true,gmap:'潮州广济桥灯光秀'},
+  {time:'21:00',name:'夜宵: 一杯潮茶+52号鱼生',desc:'潮汕工夫茶+地道鱼生',budget:'人均 ¥60-80',type:'food',need:false,gmap:'一杯潮茶 潮州'},
+],
+// D5: 揭阳→杭州
+[
+  {time:'08:00',name:'潮州早茶/肠粉',desc:'酒店退房, 自由觅食',type:'transport',need:false,gmap:''},
+  {time:'09:30',name:'自驾→揭阳古城',desc:'潮州到揭阳约50min',type:'transport',need:false,gmap:'揭阳古城'},
+  {time:'10:30',name:'进贤门+咸菜鸡翅',desc:'揭阳地标城门+回味咸菜鸡翅必吃!',budget:'鸡翅 ¥8/个',type:'food',need:false,gmap:'揭阳进贤门'},
+  {time:'11:15',name:'揭阳学宫',desc:'岭南最大孔庙, 红墙绿瓦超好拍',type:'spot',need:false,gmap:'揭阳学宫'},
+  {time:'12:00',name:'石狮桥/城隍庙',desc:'电影拍摄地+地道潮汕庙宇',type:'spot',need:false,gmap:'揭阳城隍庙'},
+  {time:'12:30',name:'揭阳古城午餐',desc:'金兴肠粉/陈记面店/贤兴甜汤随便吃',budget:'人均 ¥30-50',type:'food',need:false,gmap:'揭阳古城美食'},
+  {time:'13:30',name:'双峰寺',desc:'千年古刹, 东南亚佛教圣地',type:'spot',need:false,gmap:'揭阳双峰寺'},
+  {time:'14:15',name:'古城骑楼街漫步',desc:'买伴手礼: 老香黄/潮汕三宝/单丛茶',budget:'¥100-300',type:'spot',need:false,gmap:'揭阳骑楼街'},
+  {time:'16:00',name:'自驾→揭阳机场',desc:'约40min, 预留还车+值机时间',type:'transport',need:true,gmap:'揭阳潮汕国际机场'},
+  {time:'17:40',name:'✈️ 揭阳→杭州',desc:'东方航空 MU6506 直飞 约1h55m 空客321',type:'transport',need:false,gmap:'杭州萧山国际机场'},
+],
+];
+
+function buildSvgMap(){
+  return `<div class="map-card"><h3>🗺️ 潮汕5天自驾环线</h3>
+<div class="map-wrap"><svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="sketch"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.5"/></filter>
+<filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="5" result="noise"/><feColorMatrix type="matrix" values="0.92 0 0 0 0.05 0 0.90 0 0 0.03 0 0 0.88 0 0.04 0 0 0 0.08 0" in="noise" result="colored"/><feBlend in="SourceGraphic" in2="colored" mode="multiply"/></filter>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40,0 L0,0 L0,40" fill="none" stroke="#d8d4c8" stroke-width="0.3" opacity="0.4"/></pattern>
+<radialGradient id="vignette" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#fff" stop-opacity="0"/><stop offset="100%" stop-color="#c8c0b0" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="400" height="360" fill="#f7f4ec" filter="url(#paper)"/>
+<rect width="400" height="360" fill="url(#grid)"/>
+<rect width="400" height="360" fill="url(#vignette)"/>
+
+<!-- 罗盘 -->
+<g transform="translate(345,50)" opacity="0.25">
+<circle cx="0" cy="0" r="18" fill="none" stroke="#a09880" stroke-width="0.8"/>
+<path d="M0,-16 L3,-3 L0,0 L-3,-3Z" fill="#c8a882"/><path d="M0,16 L3,3 L0,0 L-3,3Z" fill="#a09880"/>
+<path d="M16,0 L3,3 L0,0 L3,-3Z" fill="#a09880"/><path d="M-16,0 L-3,3 L0,0 L-3,-3Z" fill="#a09880"/>
+<text x="-3" y="-20" font-size="7" fill="#807860" font-family="serif">N</text>
+</g>
+
+<!-- 广东省轮廓 -->
+<path d="M40,30 Q60,40 80,50 Q100,60 120,55 Q140,50 155,45 Q170,40 185,50 Q200,60 210,75 Q220,90 225,105 Q230,120 235,135 Q240,150 245,165 Q250,180 255,195 Q260,210 270,225 Q280,240 290,255 Q300,270 310,285 Q320,300 330,310 Q340,320 350,325 Q360,330 370,325 Q380,320 385,310 Q390,300 385,290 Q380,275 375,260 Q370,245 360,230 Q350,215 340,200 Q330,185 320,170 Q310,155 300,145 Q290,135 275,130 Q260,125 245,120 Q230,115 215,110 Q200,105 185,100 Q170,95 155,90 Q140,85 130,75 Q120,65 115,55 Q110,45 105,40 Q95,35 85,32 Q70,28 55,30Z" fill="#d8e0c8" opacity="0.12" stroke="#b8b098" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketch)" opacity="0.55"/>
+
+<!-- 海洋 -->
+<path d="M200,80 Q230,90 260,100 Q290,110 320,120 Q350,130 380,140" fill="none" stroke="#a8c8e0" stroke-width="0.6" opacity="0.3"/>
+<path d="M220,100 Q250,108 280,115 Q310,122 340,130" fill="none" stroke="#a8c8e0" stroke-width="0.5" opacity="0.2"/>
+<text x="300" y="140" font-size="8" fill="#90a8c0" font-family="serif" font-style="italic">南海</text>
+
+<!-- 韩江 -->
+<path d="M140,165 Q145,180 142,195 Q140,210 135,225 Q130,240 125,255 Q120,270 115,285" fill="none" stroke="#a0c4d8" stroke-width="1" stroke-linecap="round" opacity="0.35" stroke-dasharray="5,3"/>
+<text x="118" y="260" font-size="7" fill="#90a8c0" font-family="serif" font-style="italic" transform="rotate(-70,118,260)">韩江</text>
+
+<!-- 城市区域 -->
+<circle cx="175" cy="145" r="35" fill="#d0dab8" stroke="#b0c098" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+<text x="158" y="125" font-size="12" fill="#506830" font-family="serif" font-weight="600">汕头</text>
+<circle cx="230" cy="175" r="25" fill="#d0dab8" stroke="#b0c098" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+<text x="218" y="160" font-size="11" fill="#506830" font-family="serif" font-weight="600">南澳岛 🏝️</text>
+<circle cx="130" cy="195" r="30" fill="#d0dab8" stroke="#b0c098" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+<text x="115" y="178" font-size="12" fill="#506830" font-family="serif" font-weight="600">潮州</text>
+<circle cx="105" cy="250" r="28" fill="#d0dab8" stroke="#b0c098" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+<text x="92" y="240" font-size="12" fill="#506830" font-family="serif" font-weight="600">揭阳</text>
+
+<!-- 酒店标注 -->
+<rect x="160" y="130" width="30" height="14" rx="4" fill="#fef3cd" stroke="#f0932b" stroke-width="1"/>
+<text x="175" y="140" text-anchor="middle" font-size="8" fill="#b8860b" font-family="sans-serif">D1-D2</text>
+<rect x="218" y="168" width="25" height="14" rx="4" fill="#fef3cd" stroke="#f0932b" stroke-width="1"/>
+<text x="230" y="178" text-anchor="middle" font-size="8" fill="#b8860b" font-family="sans-serif">D3</text>
+<rect x="118" y="188" width="25" height="14" rx="4" fill="#fef3cd" stroke="#f0932b" stroke-width="1"/>
+<text x="130" y="198" text-anchor="middle" font-size="8" fill="#b8860b" font-family="sans-serif">D4</text>
+
+<!-- 自驾路线 -->
+<path d="M175,145 Q180,158 200,165 Q218,172 230,175" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round"/>
+<circle cx="175" cy="145" r="4" fill="#e74c3c"/><circle cx="230" cy="175" r="3" fill="#e74c3c"/>
+<text x="195" y="155" font-size="8" fill="#e74c3c" font-family="sans-serif">D1-D2 汕头</text>
+
+<path d="M230,175 Q215,185 195,190 Q175,195 155,200 Q140,205 130,195" fill="none" stroke="#f0932b" stroke-width="2" stroke-linecap="round" stroke-dasharray="5,3"/>
+<circle cx="130" cy="195" r="3" fill="#f0932b"/>
+<text x="175" y="198" font-size="8" fill="#f0932b" font-family="sans-serif">D3 南澳</text>
+
+<path d="M130,195 Q125,215 118,230 Q112,245 105,250" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round"/>
+<circle cx="105" cy="250" r="3" fill="#3498db"/>
+<text x="108" y="225" font-size="8" fill="#3498db" font-family="sans-serif">D4 潮州</text>
+
+<path d="M105,250 Q90,270 80,290 Q72,305 65,320" fill="none" stroke="#27ae60" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4,2"/>
+<circle cx="65" cy="320" r="3" fill="#27ae60"/>
+<text x="75" y="290" font-size="8" fill="#27ae60" font-family="sans-serif">D5 揭阳→机场</text>
+
+<!-- 图例 -->
+<text x="16" y="350" font-size="10" fill="#807860" font-family="serif">路线:</text>
+<line x1="50" y1="348" x2="70" y2="348" stroke="#e74c3c" stroke-width="2"/>
+<text x="74" y="351" font-size="9" fill="#888" font-family="sans-serif">D1-D2</text>
+<line x1="104" y1="348" x2="124" y2="348" stroke="#f0932b" stroke-width="2" stroke-dasharray="4,2"/>
+<text x="128" y="351" font-size="9" fill="#888" font-family="sans-serif">D3</text>
+<line x1="156" y1="348" x2="176" y2="348" stroke="#3498db" stroke-width="2"/>
+<text x="180" y="351" font-size="9" fill="#888" font-family="sans-serif">D4</text>
+<line x1="210" y1="348" x2="230" y2="348" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="4,2"/>
+<text x="234" y="351" font-size="9" fill="#888" font-family="sans-serif">D5</text>
+</svg></div></div>`;
+}
+
+const TABS=['总览','D1','D2','D3','D4','D5','待办','贴士'];
+const tabBar=document.getElementById('tabBar');
+TABS.forEach((t,i)=>{const b=document.createElement('button');b.className='tb'+(i===0?' active':'');b.textContent=t;b.dataset.idx=i;tabBar.appendChild(b)});
+tabBar.addEventListener('click',e=>{const b=e.target.closest('.tb');if(!b)return;tabBar.querySelectorAll('.tb').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(+b.dataset.idx)});
+
+const page=document.getElementById('page');
+function render(idx){if(idx===0)renderOverview();else if(idx<=5)renderDay(idx-1);else if(idx===6)renderTodo();else renderTips()}
+
+function findNextEvent(){
+  const now=NOW();
+  const events=[
+    {t:parseTimeCN('2026-10-21','13:40'),label:'出发倒计时',name:'杭州萧山机场'},
+    {t:parseTimeCN('2026-10-21','15:30'),label:'即将抵达',name:'揭阳潮汕机场'},
+    {t:parseTimeCN('2026-10-21','18:00'),label:'下一站',name:'杏花吴记牛肉火锅'},
+  ];
+  for(const e of events){if(e.t>now)return e;}
+  return null;
+}
+
+function renderOverview(){
+  const outT=parseTimeCN(FLIGHT_OUT.date,FLIGHT_OUT.time),now=NOW(),diff=outT-now;
+  const d=Math.max(0,Math.floor(diff/864e5)),h2=Math.floor((diff%864e5)/36e5),m=Math.floor((diff%36e5)/6e4),s=Math.floor((diff%6e4)/1e3);
+  const nextEvt=findNextEvent();
+  let h=`<div class="countdown-card">
+    <div class="cc-label">${nextEvt?nextEvt.label:'旅程进行中'}</div>
+    <div class="cc-event">${nextEvt?nextEvt.name:''}</div>
+    <div class="cc-time">
+      <span class="cc-num" id="cdDays">${d}</span><span class="cc-unit">天</span>
+      <span class="cc-sep">:</span><span class="cc-num" id="cdHours">${h2}</span><span class="cc-unit">时</span>
+      <span class="cc-sep">:</span><span class="cc-num" id="cdMins">${m}</span><span class="cc-unit">分</span>
+      <span class="cc-sep">:</span><span class="cc-num" id="cdSecs">${s}</span><span class="cc-unit">秒</span>
+    </div>
+    <div class="cc-sub">去程: 海南航空 13:40—15:30 (1h50m)</div>
+  </div>`;
+  const dOut=Math.ceil((outT-now)/864e5),backT=parseTimeCN(FLIGHT_BACK.date,FLIGHT_BACK.time),dBack=Math.ceil((backT-now)/864e5);
+  h+=`<div class="flight-badges">
+    <div class="fb"><div class="fb-route">杭州→揭阳</div><div class="fb-meta">10/21 周三 · 海南航空 HU7415<br>13:40—15:30 (1h50m) 波音737</div><div class="fb-cd">${dOut>0?dOut+' 天后出发':'今天出发'}</div></div>
+    <div class="fb"><div class="fb-route">揭阳→杭州</div><div class="fb-meta">10/25 周日 · 东方航空 MU6506<br>17:40—19:35 (1h55m) 空客321</div><div class="fb-cd">${dBack>0?dBack+' 天后返程':'今天返程'}</div></div>
+  </div>`;
+  h+=buildSvgMap();
+
+  // 已确认预定
+  const bkItems=[
+    {icon:'flight',title:'杭州→揭阳 往返航班',meta:'10/21 13:40 出发 · 10/25 17:40 返程<br>海航HU7415+东航MU6506 揭阳潮汕机场'},
+    {icon:'hotel',title:'汕头酒店 (2晚)',meta:'10/21-10/23 · 汕头市中心<br>特色建筑酒店 均价400-600元/间/晚'},
+    {icon:'hotel',title:'南澳岛民宿 (1晚)',meta:'10/23-10/24 · 青澳湾附近<br>villa看海 均价500-1200元/晚'},
+    {icon:'hotel',title:'潮州酒店 (1晚)',meta:'10/24-10/25 · 古城附近<br>均价300-400元/间/晚'},
+    {icon:'car',title:'全程自驾 租车',meta:'揭阳机场取还 · 约5天<br>SUV/轿车任选 约120-200元/天'},
+    {icon:'island',title:'南澳岛过桥费',meta:'南澳大桥 单程96元/车<br>进出岛合计约200元'},
+  ];
+  let bkHtml='';bkItems.forEach(it=>{bkHtml+=`<div class="bk-item"><div class="bk-icon ${it.icon}">${({flight:'✈️',hotel:'🏨',car:'🚗',island:'🏝️'})[it.icon]}</div><div class="bk-detail"><div class="bk-title">${it.title}</div><div class="bk-meta">${it.meta}</div></div></div>`});
+  h+=`<div class="booking-card"><h3>📋 已确认预定</h3>${bkHtml}</div>`;
+  page.innerHTML=h;
+}
+
+function renderDay(idx){
+  const locs=LOCATIONS[idx],color=DAY_COLORS[idx],label=DAY_LABELS[idx],date=DAY_DATES[idx];
+  let h=`<div class="day-header"><span>${label} · ${date}</span><button class="day-route-btn" onclick="toggleRoute(${idx})">🗺️ 当日路线</button></div>`;
+  h+=`<div class="day-route-overlay" id="route-${idx}"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">`;
+  const pts=[];for(let i=0;i<locs.length;i++){pts.push({x:30+(i/(locs.length-1||1))*340,y:100+Math.sin(i*0.8)*30+Math.cos(i*1.2)*15})}
+  if(pts.length>1){let d=`M${pts[0].x},${pts[0].y}`;for(let i=1;i<pts.length;i++)d+=` Q${(pts[i-1].x+pts[i].x)/2},${(pts[i-1].y+pts[i].y)/2-20} ${pts[i].x},${pts[i].y}`;h+=`<path d="${d}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round"/>`;pts.forEach((p,i)=>{h+=`<circle cx="${p.x}" cy="${p.y}" r="4" fill="${color}"/><text x="${p.x}" y="${p.y-10}" text-anchor="middle" font-size="9" fill="${color}" font-family="sans-serif">${locs[i].time}</text>`})}
+  h+=`</svg></div><div class="day-timeline">`;
+  locs.forEach(l=>{const badge=l.need?'<span class="dt-badge need">⚠️需注意</span>':'';const gmapUrl=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l.gmap||l.name)}`;h+=`<div class="dt-item"><div class="dt-dot" style="background:${color}"></div><div class="dt-card" onclick="window.open('${gmapUrl}','_blank')"><div class="dt-time">${l.time}</div><div class="dt-name">${l.name}${badge}</div><div class="dt-desc">${l.desc}</div>${l.budget?`<span class="dt-budget">${l.budget}</span>`:''}<div class="dt-gmap">🗺️ Google Map 导航</div></div></div>`});
+  h+=`</div>`;page.innerHTML=h;
+}
+function toggleRoute(idx){const el=document.getElementById('route-'+idx);if(el)el.classList.toggle('show')}
+
+function renderTodo(){
+  const items=[
+    '订机票: 杭州↔揭阳 往返，确认航班时间',
+    '租车: 一嗨/神州/携程租车，揭阳机场取还',
+    '订汕头酒店: 市中心附近，建议小公园/龙眼南路周边',
+    '订南澳岛民宿: 青澳湾附近，人多建议整栋villa',
+    '订潮州酒店: 古城/牌坊街附近，方便夜游',
+    '查广济桥灯光秀时间: 周一至四20:00 / 周末20:00+21:30',
+    '购买旅行保险（含自驾保障）',
+    '下载离线地图: 南澳岛部分区域信号可能稍差',
+    '带薄外套: 十月底潮汕早晚略凉，白天仍可短袖',
+    '确认南澳岛过桥费支付方式（现金/ETC均可）',
+  ];
+  let h=`<div class="todo-card"><h3>📝 待办清单</h3>`;
+  items.forEach((t,i)=>{h+=`<div class="todo-item"><span class="todo-num">${i+1}.</span><span>${t}</span></div>`});
+  h+=`</div>`;page.innerHTML=h;
+}
+
+function renderTips(){
+  let h=`<div class="tips-card"><h3>💡 实用贴士</h3>
+<div class="tip-block"><h4>🚗 租车攻略</h4><p>• 揭阳潮汕机场有神州/一嗨/携程取车点, 提前App预约<br>• 5天自驾选SUV更舒适, 约120-200元/天 + 保险50元/天<br>• 潮汕环线总里程约300km, 油费约200-300元<br>• ⚠️ 南澳岛山路多弯, 新手酌情<br>• 揭阳机场还车点就在航站楼旁, 还车后走3分钟</p></div>
+<div class="tip-block"><h4>🛫 出行攻略</h4><p>• ⚠️ 杭州→揭阳上午仅有春秋航空, 全服务航司最早13:30起<br>• 也可高铁: 杭州东→潮汕站约6h, 二等座约400元<br>• 潮汕三市之间开车30-60分钟, 自驾最自由<br>• 十月底潮汕天气: 20-28℃, 晴天为主, 早晚微凉</p></div>
+<div class="tip-block"><h4>✈️ 推荐航班 (不差钱优选·全服务航司)</h4>
+<div style="background:#f0f6ff;border-radius:10px;padding:10px;margin-top:6px">
+<p style="font-weight:700;color:#1a1a1a">➡️ <strong style="color:#e74c3c">去程</strong> 10/21 周三 · 海南航空</p>
+<p>🕐 杭州 HGH 13:40 → 揭阳 SWA 15:30<br><span style="color:#888;font-size:11px">HU7415 | 波音737 | 直飞1h50m | 含餐+行李 | ¥1220</span></p>
+<p style="font-size:11px;color:#999;margin-top:4px">📌 上午只有春秋航空(廉航), 全服务最早就是这班</p>
+<p style="font-weight:700;color:#1a1a1a;margin-top:8px">⬅️ <strong style="color:#3498db">返程</strong> 10/25 周日 · 东方航空</p>
+<p>🕔 揭阳 SWA 17:40 → 杭州 HGH 19:35<br><span style="color:#888;font-size:11px">MU6506 | 空客321 | 直飞1h55m | 含餐+行李 | ¥1240</span></p>
+</div>
+<div style="background:#fef9f0;border-radius:10px;padding:10px;margin-top:8px">
+<p style="font-size:11px;color:#888">🔁 <strong>备选方案:</strong><br>去程·南航 CZ5850 13:30→15:35 (波音737, ¥1010); 返程·南航 CZ5459 15:00→16:50 (波音737)</p>
+</div></div>
+<div class="tip-block"><h4>🍵 美食攻略</h4><p>• 牛肉火锅必吃: 一头牛不同部位口感各不同, 五花趾最珍贵<br>• 生腌(蟹/虾/血蚶): 考验肠胃, 建议少量尝试<br>• 单丛茶: 潮汕特产, 鸭屎香/蜜兰香/宋种, 古城茶店可试喝<br>• 伴手礼: 老香黄/老药桔/单丛茶/牛肉丸(机场有真空装)</p></div>
+<div class="tip-block"><h4>👕 着装 & 天气</h4><p>• 十月底潮汕: 白天25-28℃短袖, 早晚18-20℃需薄外套<br>• 南澳岛海风大, 带防风外套<br>• 寺庙/学宫等场所不穿露肩露膝装<br>• 全程大量步行, 舒服的鞋最重要!</p></div>
+<div class="tip-block"><h4>💰 预算参考</h4><p>• 机票: 杭州↔揭阳往返 约800-1500元/人<br>• 租车: 约800-1200元/5天<br>• 住宿: 汕头2晚800-1200 + 南澳1晚500-1200 + 潮州1晚300-400 = 约2000-3000元<br>• 餐饮: 潮汕人均餐饮消费极低, 一天100-150元吃撑<br>• 总计: 人均约3000-5000元 (5天)</p></div>
+<div class="tip-block"><h4>⚠️ 重要提醒</h4><p>• D4下午三点前务必离岛, 赶去潮州看灯光秀<br>• 南澳岛节假日超级堵, 尽量避开周末/长假<br>• 广济桥灯光秀周一至四仅20:00一场, 不要错过<br>• 汕头夜市龙眼南路和珠江路都很好, 不用纠结<br>• 租车取车时拍一圈视频, 记录车况防纠纷</p></div>
+</div>
+
+<div class="tips-card"><h3>🍽️ 小红书口碑美食 (资深吃货验证)</h3>
+
+<div class="tip-block">
+<h4>🥩 汕头·牛肉火锅 (人均80-120)</h4>
+<p>• <strong>杏花吴记牛肉火锅</strong> ⭐4.8 · 汕头No.1 五花趾/匙柄/胸口油/生丸 下午不排队<br>• <strong>八合里海记</strong> ⭐4.6 · 走出汕头的连锁鼻祖 吊龙伴8秒最佳<br>• <strong>天山牛肉火锅</strong> ⭐4.5 · 本地人推荐 肉质稳定酱料丰富</p>
+</div>
+
+<div class="tip-block">
+<h4>🍜 汕头·早餐 & 粿条 (人均10-25)</h4>
+<p>• <strong>小吴肠粉</strong> ⭐4.7 · 皮薄馅多 牛肉海鲜/蛋肠粉 汕头肠粉天花板<br>• <strong>老鬍牛肉粿</strong> ⭐4.6 · 1985年老店 干粿+沙茶酱拌=灵魂吃法<br>• <strong>老牌福合沟无米粿</strong> ⭐4.5 · 煎得金黄酥脆 韭菜馅一口爆香<br>• <strong>广场老牌豆花甜汤</strong> ⭐4.5 · 豆花细嫩如凝脂 鸭母捻(潮汕汤圆)</p>
+</div>
+
+<div class="tip-block">
+<h4>🦐 汕头·生腌 & 蚝烙 & 卤鹅</h4>
+<p>• <strong>瑞娇嫲嫲潮汕生腌</strong> ⭐4.6 · 膏蟹冰淇淋口感 皮皮虾/血蛤 配白粥<br>• <strong>汫洲蚝烙(林记鲜蚝)</strong> ⭐4.5 · 外酥里嫩 蚝珠饱满 蘸鱼露辣椒<br>• <strong>春梅里卤鹅馆</strong> ⭐4.6 · 老字号! 鹅肉+粉肝 蘸蒜泥醋<br>• <strong>富苑饮食</strong> ⭐4.7 · 夜粥航母 生腌蟹+隆江猪脚 深夜食堂</p>
+</div>
+
+<div class="tip-block">
+<h4>🍧 汕头·小吃 & 甜品 & 茶饮</h4>
+<p>• <strong>伟顺反沙屋</strong> 反沙芋头+番薯+咸蛋黄 人均6元<br>• <strong>细姨甜汤&潮禧记</strong> 姜薯汤/五果汤+炸鸡翅 绝配<br>• <strong>阿群甘草水果</strong> 青芒果+莲雾+草莓 蘸酸梅粉甘草汁<br>• <strong>成川治茶</strong> 金不换椰(奶茶)只在汕头喝得到<br>• <strong>陈悠悠夜茶排挡</strong> 平价夜茶 牛肉陈村粉/炸云吞 人均不到50</p>
+</div>
+
+<div class="tip-block">
+<h4>🏮 潮州·牛肉火锅 & 鱼生 (人均60-120)</h4>
+<p>• <strong>官塘兄弟牛肉火锅</strong> ⭐4.7 · 50年老字号 官塘总店性价比最高<br>• <strong>官塘原味鱼生</strong> ⭐4.5 · 草鱼切得薄如蝉翼 十几种配料拌<br>• <strong>阿荣砂锅粥</strong> ⭐4.6 · 虾蟹砂锅粥天花板 每锅现熬<br>• <strong>谢三卤·卤水火锅</strong> ⭐4.5 · 38年老卤汤 鹅掌鹅肠咕嘟咕嘟</p>
+</div>
+
+<div class="tip-block">
+<h4>🏮 潮州·小吃 & 甜品 & 手信</h4>
+<p>• <strong>开元上西平咸水粿</strong> 菜脯粒炒得喷香 老潮州灵魂小吃<br>• <strong>吴进平小吃店</strong> 60年老店 春饼皮脆馅香 天天排队<br>• <strong>一家人肠粉</strong> 淋花生酱的潮式肠粉 牛肉+蛋+白菜<br>• <strong>谢怀亮芝麻茶</strong> 芝麻糊/杏仁茶 配炸猪肉串豆腐干<br>• <strong>如如糯米铺</strong> 手工现打糯米糍 榴莲/草莓馅很足<br>• <strong>刘卜卤鹅</strong> 三代传承50年 鹅掌/粉肝一绝<br>• <strong>扬航饼家</strong> 省级非遗糕点 鸭屎香手工蛋卷必买伴手礼<br>• <strong>枫春白粥</strong> 深夜烟火气 白粥+琳琅满目小菜配生腌</p>
+</div>
+
+<div class="tip-block">
+<h4>🏝️ 南澳岛·海鲜大排档 (人均60-100)</h4>
+<p>• <strong>行运小厨</strong> ⭐4.7 · 青澳湾宝藏 人均25-70套餐 不宰客! 紫菜炒饭一绝<br>• <strong>渔鲜潮食馆</strong> ⭐4.6 · 姜葱炒蟹+海胆紫菜炒饭+紫菜鱼丸汤<br>• <strong>海潮风味蒸汽火锅</strong> ⭐4.5 · 蒸汽海鲜原汁原味 海鲜现蒸<br>• <strong>美味鲜海鲜饭店</strong> ⭐4.5 · 后宅镇 酸梅猪脚经典<br>• <strong>龙尾顶烧烤店</strong> 芒果百香果炒冰+烧烤 宵夜必去<br>• <strong>然记糖水铺</strong> 姜薯蛋花(本地特色)+芋泥冰</p>
+</div>
+
+<div class="tip-block">
+<h4>🏛️ 揭阳·古城美食收尾 (人均15-50)</h4>
+<p>• <strong>回味咸菜鸡翅</strong> ⭐4.6 · 咸香酥脆 揭阳必吃第一名 8元/个<br>• <strong>金兴肠粉</strong> ⭐4.4 · 地道揭阳肠粉 本地人早餐标配<br>• <strong>陈记面店</strong> ⭐4.3 · 手工面搭配自制酱料 老饕最爱<br>• <strong>贤兴甜汤</strong> ⭐4.4 · 传统潮汕甜汤 饭后来一碗收尾</p>
+</div>
+
+</div>`;page.innerHTML=h;
+}
+
+// ===== COUNTDOWN =====
+setInterval(()=>{
+  const cds=document.getElementById('cdSecs');
+  if(!cds)return;
+  let s=parseInt(cds.textContent);
+  if(s>0){cds.textContent=s-1;return}
+  const cdm=document.getElementById('cdMins');
+  let m2=parseInt(cdm.textContent);
+  if(m2>0){cdm.textContent=m2-1;cds.textContent=59;return}
+  const cdh=document.getElementById('cdHours');
+  let h2=parseInt(cdh.textContent);
+  if(h2>0){cdh.textContent=h2-1;cdm.textContent=59;cds.textContent=59;return}
+  const cdd=document.getElementById('cdDays');
+  let d=parseInt(cdd.textContent);
+  if(d>0){cdd.textContent=d-1;cdh.textContent=23;cdm.textContent=59;cds.textContent=59}
+},1000);
+
+render(0);
+</script>
+</body>
+</html>
