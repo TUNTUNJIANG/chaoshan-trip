@@ -88,8 +88,8 @@ const NOW=()=>new Date();
 
 // === 行程日期 ===
 const TRIP_START='2026-10-21';
-const FLIGHT_OUT={date:'2026-10-21',time:'13:40',tz:TZ_CN};
-const FLIGHT_BACK={date:'2026-10-25',time:'17:40',tz:TZ_CN};
+const FLIGHT_OUT={date:'2026-10-21',time:'10:35',tz:TZ_CN};
+const FLIGHT_BACK={date:'2026-10-25',time:'15:25',tz:TZ_CN};
 
 const DAY_COLORS=['#e74c3c','#f0932b','#3498db','#8e6de6','#27ae60'];
 const DAY_LABELS=['D1','D2','D3','D4','D5'];
@@ -99,12 +99,16 @@ const DAY_DATES=['10月21日 周三','10月22日 周四','10月23日 周五','10
 const LOCATIONS=[
 // D1: 杭州→汕头
 [
-  {time:'13:40',name:'杭州萧山机场出发 🛫',desc:'海南航空 HU7415 直飞揭阳 约1h50m 波音737',type:'transport',need:false,gmap:'杭州萧山国际机场'},
-  {time:'15:30',name:'抵达揭阳潮汕机场',desc:'取行李, 租车公司提车',type:'transport',need:true,gmap:'揭阳潮汕国际机场'},
-  {time:'16:15',name:'自驾→汕头市中心',desc:'约38km / 40min 高速直达',budget:'约 ¥120 租车/天',type:'transport',need:false,gmap:'汕头市'},
-  {time:'17:00',name:'酒店 Check-in',desc:'休整, 放行李',type:'hotel',need:false,gmap:'汕头特色建筑酒店'},
-  {time:'18:00',name:'杏花吴记牛肉火锅',desc:'首推! 五花趾/吊龙/匙柄/生丸 (晚市早去不用排太久)',budget:'人均 ¥80-120',type:'food',need:false,gmap:'杏花吴记牛肉火锅 汕头'},
-  {time:'19:30',name:'🌃 龙眼南路/珠江路夜市',desc:'生腌/肠粉/甜汤/卤鹅/甘草水果一网打尽',budget:'人均 ¥50-100',type:'food',need:false,gmap:'汕头龙眼南路美食街'},
+  {time:'10:35',name:'杭州萧山机场出发 🛫',desc:'春秋航空 直飞揭阳 约1h55m',type:'transport',need:false,gmap:'杭州萧山国际机场'},
+  {time:'12:30',name:'抵达揭阳潮汕机场',desc:'取行李, 租车公司提车',type:'transport',need:true,gmap:'揭阳潮汕国际机场'},
+  {time:'13:15',name:'自驾→汕头市中心',desc:'约38km / 40min 高速直达',budget:'约 ¥120 租车/天',type:'transport',need:false,gmap:'汕头市'},
+  {time:'14:00',name:'酒店 Check-in',desc:'休整, 放行李',type:'hotel',need:false,gmap:'汕头特色建筑酒店'},
+  {time:'14:30',name:'杏花吴记牛肉火锅',desc:'首选! 五花趾/吊龙/匙柄/生丸 下午不排队',budget:'人均 ¥80-120',type:'food',need:false,gmap:'杏花吴记牛肉火锅 汕头'},
+  {time:'16:00',name:'汕头老城 小公园',desc:'骑楼建筑群+中山纪念亭, 可逛可吃可打卡',type:'spot',need:false,gmap:'汕头小公园'},
+  {time:'17:00',name:'老妈宫',desc:'始建于清朝嘉庆年间, 潮汕特色庙宇',type:'spot',need:false,gmap:'汕头老妈宫'},
+  {time:'17:45',name:'邮政总局遗址',desc:'百年邮局旧址, 人少安静, 吹冷风歇脚',type:'spot',need:false,gmap:'汕头邮政总局旧址'},
+  {time:'18:15',name:'汕头旅社打卡点',desc:'老骑楼街景, 拍照超有氛围感',type:'spot',need:false,gmap:'汕头旅社老骑楼'},
+  {time:'19:00',name:'🌃 龙眼南路/珠江路夜市',desc:'生腌/肠粉/甜汤/卤鹅/甘草水果',budget:'人均 ¥50-100',type:'food',need:false,gmap:'汕头龙眼南路美食街'},
 ],
 // D2: 汕头深度游
 [
@@ -150,15 +154,14 @@ const LOCATIONS=[
 // D5: 揭阳→杭州
 [
   {time:'08:00',name:'潮州早茶/肠粉',desc:'酒店退房, 自由觅食',type:'transport',need:false,gmap:''},
-  {time:'09:30',name:'自驾→揭阳古城',desc:'潮州到揭阳约50min',type:'transport',need:false,gmap:'揭阳古城'},
-  {time:'10:30',name:'进贤门+咸菜鸡翅',desc:'揭阳地标城门+回味咸菜鸡翅必吃!',budget:'鸡翅 ¥8/个',type:'food',need:false,gmap:'揭阳进贤门'},
-  {time:'11:15',name:'揭阳学宫',desc:'岭南最大孔庙, 红墙绿瓦超好拍',type:'spot',need:false,gmap:'揭阳学宫'},
-  {time:'12:00',name:'石狮桥/城隍庙',desc:'电影拍摄地+地道潮汕庙宇',type:'spot',need:false,gmap:'揭阳城隍庙'},
-  {time:'12:30',name:'揭阳古城午餐',desc:'金兴肠粉/陈记面店/贤兴甜汤随便吃',budget:'人均 ¥30-50',type:'food',need:false,gmap:'揭阳古城美食'},
-  {time:'13:30',name:'双峰寺',desc:'千年古刹, 东南亚佛教圣地',type:'spot',need:false,gmap:'揭阳双峰寺'},
-  {time:'14:15',name:'古城骑楼街漫步',desc:'买伴手礼: 老香黄/潮汕三宝/单丛茶',budget:'¥100-300',type:'spot',need:false,gmap:'揭阳骑楼街'},
-  {time:'16:00',name:'自驾→揭阳机场',desc:'约40min, 预留还车+值机时间',type:'transport',need:true,gmap:'揭阳潮汕国际机场'},
-  {time:'17:40',name:'✈️ 揭阳→杭州',desc:'东方航空 MU6506 直飞 约1h55m 空客321',type:'transport',need:false,gmap:'杭州萧山国际机场'},
+  {time:'09:00',name:'自驾→揭阳古城',desc:'潮州到揭阳约50min',type:'transport',need:false,gmap:'揭阳古城'},
+  {time:'10:00',name:'进贤门+咸菜鸡翅',desc:'揭阳地标城门+回味咸菜鸡翅必吃!',budget:'鸡翅 ¥8/个',type:'food',need:false,gmap:'揭阳进贤门'},
+  {time:'10:45',name:'揭阳学宫',desc:'岭南最大孔庙, 红墙绿瓦超好拍',type:'spot',need:false,gmap:'揭阳学宫'},
+  {time:'11:30',name:'石狮桥/城隍庙',desc:'电影拍摄地+地道潮汕庙宇',type:'spot',need:false,gmap:'揭阳城隍庙'},
+  {time:'12:00',name:'揭阳古城午餐',desc:'金兴肠粉/陈记面店/贤兴甜汤',budget:'人均 ¥30-50',type:'food',need:false,gmap:'揭阳古城美食'},
+  {time:'13:00',name:'古城骑楼街+买伴手礼',desc:'老香黄/潮汕三宝/单丛茶 最后扫货',budget:'¥100-300',type:'spot',need:false,gmap:'揭阳骑楼街'},
+  {time:'13:40',name:'自驾→揭阳机场',desc:'约40min, 预留还车+值机时间',type:'transport',need:true,gmap:'揭阳潮汕国际机场'},
+  {time:'15:25',name:'✈️ 揭阳→杭州',desc:'春秋航空 直飞 约1h55m, 傍晚到家',type:'transport',need:false,gmap:'杭州萧山国际机场'},
 ],
 ];
 
@@ -254,9 +257,9 @@ function render(idx){if(idx===0)renderOverview();else if(idx<=5)renderDay(idx-1)
 function findNextEvent(){
   const now=NOW();
   const events=[
-    {t:parseTimeCN('2026-10-21','13:40'),label:'出发倒计时',name:'杭州萧山机场'},
-    {t:parseTimeCN('2026-10-21','15:30'),label:'即将抵达',name:'揭阳潮汕机场'},
-    {t:parseTimeCN('2026-10-21','18:00'),label:'下一站',name:'杏花吴记牛肉火锅'},
+    {t:parseTimeCN('2026-10-21','10:35'),label:'出发倒计时',name:'杭州萧山机场'},
+    {t:parseTimeCN('2026-10-21','12:30'),label:'即将抵达',name:'揭阳潮汕机场'},
+    {t:parseTimeCN('2026-10-21','14:30'),label:'下一站',name:'杏花吴记牛肉火锅'},
   ];
   for(const e of events){if(e.t>now)return e;}
   return null;
@@ -275,18 +278,18 @@ function renderOverview(){
       <span class="cc-sep">:</span><span class="cc-num" id="cdMins">${m}</span><span class="cc-unit">分</span>
       <span class="cc-sep">:</span><span class="cc-num" id="cdSecs">${s}</span><span class="cc-unit">秒</span>
     </div>
-    <div class="cc-sub">去程: 海南航空 13:40—15:30 (1h50m)</div>
+    <div class="cc-sub">去程: 春秋航空 10:35—12:30 (1h55m)</div>
   </div>`;
   const dOut=Math.ceil((outT-now)/864e5),backT=parseTimeCN(FLIGHT_BACK.date,FLIGHT_BACK.time),dBack=Math.ceil((backT-now)/864e5);
   h+=`<div class="flight-badges">
-    <div class="fb"><div class="fb-route">杭州→揭阳</div><div class="fb-meta">10/21 周三 · 海南航空 HU7415<br>13:40—15:30 (1h50m) 波音737</div><div class="fb-cd">${dOut>0?dOut+' 天后出发':'今天出发'}</div></div>
-    <div class="fb"><div class="fb-route">揭阳→杭州</div><div class="fb-meta">10/25 周日 · 东方航空 MU6506<br>17:40—19:35 (1h55m) 空客321</div><div class="fb-cd">${dBack>0?dBack+' 天后返程':'今天返程'}</div></div>
+    <div class="fb"><div class="fb-route">杭州→揭阳</div><div class="fb-meta">10/21 周三 · 春秋航空<br>10:35—12:30 (1h55m)</div><div class="fb-cd">${dOut>0?dOut+' 天后出发':'今天出发'}</div></div>
+    <div class="fb"><div class="fb-route">揭阳→杭州</div><div class="fb-meta">10/25 周日 · 春秋航空<br>15:25—17:20 (1h55m)</div><div class="fb-cd">${dBack>0?dBack+' 天后返程':'今天返程'}</div></div>
   </div>`;
   h+=buildSvgMap();
 
   // 已确认预定
   const bkItems=[
-    {icon:'flight',title:'杭州→揭阳 往返航班',meta:'10/21 13:40 出发 · 10/25 17:40 返程<br>海航HU7415+东航MU6506 揭阳潮汕机场'},
+    {icon:'flight',title:'杭州→揭阳 往返航班',meta:'10/21 10:35 出发 · 10/25 15:25 返程<br>春秋航空直飞 揭阳潮汕国际机场'},
     {icon:'hotel',title:'汕头酒店 (2晚)',meta:'10/21-10/23 · 汕头市中心<br>特色建筑酒店 均价400-600元/间/晚'},
     {icon:'hotel',title:'南澳岛民宿 (1晚)',meta:'10/23-10/24 · 青澳湾附近<br>villa看海 均价500-1200元/晚'},
     {icon:'hotel',title:'潮州酒店 (1晚)',meta:'10/24-10/25 · 古城附近<br>均价300-400元/间/晚'},
