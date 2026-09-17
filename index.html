@@ -95,14 +95,14 @@ function parseTimeCN(d,t){return new Date(d+'T'+t+TZ_CN)}
 const NOW=()=>new Date();
 
 // === 行程日期 ===
-const TRIP_START='2026-10-21';
-const FLIGHT_OUT={date:'2026-10-21',time:'10:35',tz:TZ_CN};
-const FLIGHT_BACK={date:'2026-10-25',time:'15:25',tz:TZ_CN};
+const TRIP_START='2026-11-01';
+const FLIGHT_OUT={date:'2026-11-01',time:'10:35',tz:TZ_CN};
+const FLIGHT_BACK={date:'2026-11-05',time:'15:25',tz:TZ_CN};
 
 const DAY_COLORS=['#e74c3c','#f0932b','#3498db','#8e6de6','#27ae60'];
 const DAY_LABELS=['D1','D2','D3','D4','D5'];
 const DAY_TITLES=['杭州→汕头·老城烟火','礐石·东海岸·橘子海落日','南澳岛·环岛灯塔之旅','南澳→潮州·古城灯光秀','揭阳·学宫古韵·返程'];
-const DAY_DATES=['10月21日 周三','10月22日 周四','10月23日 周五','10月24日 周六','10月25日 周日'];
+const DAY_DATES=['11月1日 周日','11月2日 周一','11月3日 周二','11月4日 周三','11月5日 周四'];
 
 const LOCATIONS=[
 // D1: 杭州→汕头
@@ -344,9 +344,9 @@ function render(idx){if(idx===0)renderOverview();else if(idx<=5)renderDay(idx-1)
 function findNextEvent(){
   const now=NOW();
   const events=[
-    {t:parseTimeCN('2026-10-21','10:35'),label:'出发倒计时',name:'杭州萧山机场'},
-    {t:parseTimeCN('2026-10-21','12:30'),label:'即将抵达',name:'揭阳潮汕机场'},
-    {t:parseTimeCN('2026-10-21','14:30'),label:'下一站',name:'杏花吴记牛肉火锅'},
+    {t:parseTimeCN('2026-11-01','10:35'),label:'出发倒计时',name:'杭州萧山机场'},
+    {t:parseTimeCN('2026-11-01','12:30'),label:'即将抵达',name:'揭阳潮汕机场'},
+    {t:parseTimeCN('2026-11-01','14:30'),label:'下一站',name:'杏花吴记牛肉火锅'},
   ];
   for(const e of events){if(e.t>now)return e;}
   return null;
@@ -369,17 +369,17 @@ function renderOverview(){
   </div>`;
   const dOut=Math.ceil((outT-now)/864e5),backT=parseTimeCN(FLIGHT_BACK.date,FLIGHT_BACK.time),dBack=Math.ceil((backT-now)/864e5);
   h+=`<div class="flight-badges">
-    <div class="fb"><div class="fb-route">杭州→揭阳</div><div class="fb-meta">10/21 周三 · 春秋航空<br>10:35—12:30 (1h55m)</div><div class="fb-cd">${dOut>0?dOut+' 天后出发':'今天出发'}</div></div>
-    <div class="fb"><div class="fb-route">揭阳→杭州</div><div class="fb-meta">10/25 周日 · 春秋航空<br>15:25—17:20 (1h55m)</div><div class="fb-cd">${dBack>0?dBack+' 天后返程':'今天返程'}</div></div>
+    <div class="fb"><div class="fb-route">杭州→揭阳</div><div class="fb-meta">11/1 周日 · 春秋航空<br>10:35—12:30 (1h55m)</div><div class="fb-cd">${dOut>0?dOut+' 天后出发':'今天出发'}</div></div>
+    <div class="fb"><div class="fb-route">揭阳→杭州</div><div class="fb-meta">11/5 周四 · 春秋航空<br>15:25—17:20 (1h55m)</div><div class="fb-cd">${dBack>0?dBack+' 天后返程':'今天返程'}</div></div>
   </div>`;
   h+=buildSvgMap();
 
   // 已确认预定
   const bkItems=[
-    {icon:'flight',title:'杭州→揭阳 往返航班',meta:'10/21 10:35 出发 · 10/25 15:25 返程<br>春秋航空直飞 揭阳潮汕国际机场'},
-    {icon:'hotel',title:'汕头酒店 (2晚)',meta:'10/21-10/23 · 汕头市中心<br>特色建筑酒店 均价400-600元/间/晚'},
-    {icon:'hotel',title:'南澳岛民宿 (1晚)',meta:'10/23-10/24 · 青澳湾附近<br>villa看海 均价500-1200元/晚'},
-    {icon:'hotel',title:'潮州酒店 (1晚)',meta:'10/24-10/25 · 古城附近<br>均价300-400元/间/晚'},
+    {icon:'flight',title:'杭州→揭阳 往返航班',meta:'11/1 10:35 出发 · 11/5 15:25 返程<br>春秋航空直飞 揭阳潮汕国际机场'},
+    {icon:'hotel',title:'汕头酒店 (2晚)',meta:'11/1-11/3 · 汕头市中心<br>特色建筑酒店 均价400-600元/间/晚'},
+    {icon:'hotel',title:'南澳岛民宿 (1晚)',meta:'11/3-11/4 · 青澳湾附近<br>villa看海 均价500-1200元/晚'},
+    {icon:'hotel',title:'潮州酒店 (1晚)',meta:'11/4-11/5 · 古城附近<br>均价300-400元/间/晚'},
     {icon:'car',title:'全程自驾 租车',meta:'揭阳机场取还 · 约5天<br>SUV/轿车任选 约120-200元/天'},
     {icon:'island',title:'南澳岛过桥费',meta:'南澳大桥 单程96元/车<br>进出岛合计约200元'},
   ];
@@ -424,10 +424,10 @@ function renderTips(){
 <div class="tip-block"><h4>🛫 出行攻略</h4><p>• ⚠️ 杭州→揭阳上午仅有春秋航空, 全服务航司最早13:30起<br>• 也可高铁: 杭州东→潮汕站约6h, 二等座约400元<br>• 潮汕三市之间开车30-60分钟, 自驾最自由<br>• 十月底潮汕天气: 20-28℃, 晴天为主, 早晚微凉</p></div>
 <div class="tip-block"><h4>✈️ 推荐航班 (不差钱优选·全服务航司)</h4>
 <div style="background:#f0f6ff;border-radius:10px;padding:10px;margin-top:6px">
-<p style="font-weight:700;color:#1a1a1a">➡️ <strong style="color:#e74c3c">去程</strong> 10/21 周三 · 海南航空</p>
+<p style="font-weight:700;color:#1a1a1a">➡️ <strong style="color:#e74c3c">去程</strong> 11/1 周日 · 春秋航空</p>
 <p>🕐 杭州 HGH 13:40 → 揭阳 SWA 15:30<br><span style="color:#888;font-size:11px">HU7415 | 波音737 | 直飞1h50m | 含餐+行李 | ¥1220</span></p>
 <p style="font-size:11px;color:#999;margin-top:4px">📌 上午只有春秋航空(廉航), 全服务最早就是这班</p>
-<p style="font-weight:700;color:#1a1a1a;margin-top:8px">⬅️ <strong style="color:#3498db">返程</strong> 10/25 周日 · 东方航空</p>
+<p style="font-weight:700;color:#1a1a1a;margin-top:8px">⬅️ <strong style="color:#3498db">返程</strong> 11/5 周四 · 春秋航空</p>
 <p>🕔 揭阳 SWA 17:40 → 杭州 HGH 19:35<br><span style="color:#888;font-size:11px">MU6506 | 空客321 | 直飞1h55m | 含餐+行李 | ¥1240</span></p>
 </div>
 <div style="background:#fef9f0;border-radius:10px;padding:10px;margin-top:8px">
