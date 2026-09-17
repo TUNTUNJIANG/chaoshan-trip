@@ -15,6 +15,14 @@ body{font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;back
 .tab-bar::-webkit-scrollbar{display:none}
 .tb{flex-shrink:0;padding:10px 14px;min-width:62px;text-align:center;font-size:13px;font-weight:500;color:var(--sub);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
 .tb.active{color:var(--text);font-weight:700;border-bottom-color:var(--text)}
+#page{touch-action:pan-y;cursor:grab;will-change:transform,opacity;transform-style:preserve-3d}
+#page.swipe-dragging{cursor:grabbing;user-select:none}
+#page.page-flip-next,#page.page-flip-prev{backface-visibility:hidden}
+#page.page-flip-next{animation:page-flip-next .48s cubic-bezier(.22,.61,.36,1) both;transform-origin:left center}
+#page.page-flip-prev{animation:page-flip-prev .48s cubic-bezier(.22,.61,.36,1) both;transform-origin:right center}
+@keyframes page-flip-next{0%{opacity:.35;transform:perspective(1200px) rotateY(-16deg) translateX(34px);filter:drop-shadow(-12px 0 10px rgba(0,0,0,.14))}65%{opacity:1;transform:perspective(1200px) rotateY(3deg) translateX(-3px)}100%{opacity:1;transform:perspective(1200px) rotateY(0) translateX(0);filter:none}}
+@keyframes page-flip-prev{0%{opacity:.35;transform:perspective(1200px) rotateY(16deg) translateX(-34px);filter:drop-shadow(12px 0 10px rgba(0,0,0,.14))}65%{opacity:1;transform:perspective(1200px) rotateY(-3deg) translateX(3px)}100%{opacity:1;transform:perspective(1200px) rotateY(0) translateX(0);filter:none}}
+@media (prefers-reduced-motion:reduce){#page.page-flip-next,#page.page-flip-prev{animation:none}}
 .section{display:none;padding:16px;padding-bottom:60px}.section.active{display:block}
 .countdown-card{background:var(--card);border-radius:16px;padding:20px 20px 16px;margin-bottom:16px;box-shadow:0 1px 8px rgba(0,0,0,.04)}
 .cc-label{font-size:12px;color:var(--sub);margin-bottom:2px}
@@ -248,10 +256,72 @@ function buildSvgMap(){
 
 const TABS=['总览','D1','D2','D3','D4','D5','待办','贴士'];
 const tabBar=document.getElementById('tabBar');
+let currentIdx=0;
 TABS.forEach((t,i)=>{const b=document.createElement('button');b.className='tb'+(i===0?' active':'');b.textContent=t;b.dataset.idx=i;tabBar.appendChild(b)});
-tabBar.addEventListener('click',e=>{const b=e.target.closest('.tb');if(!b)return;tabBar.querySelectorAll('.tb').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(+b.dataset.idx)});
+tabBar.addEventListener('click',e=>{const b=e.target.closest('.tb');if(!b)return;selectTab(+b.dataset.idx)});
 
 const page=document.getElementById('page');
+function selectTab(idx){
+  const nextIdx=Math.max(0,Math.min(TABS.length-1,idx));
+  const direction=nextIdx-currentIdx;
+  if(direction===0)return;
+  currentIdx=nextIdx;
+  tabBar.querySelectorAll('.tb').forEach((button,i)=>button.classList.toggle('active',i===nextIdx));
+  const activeTab=tabBar.querySelector(`.tb[data-idx="${nextIdx}"]`);
+  if(activeTab)activeTab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  renderPage(nextIdx,direction);
+}
+
+function renderPage(idx,direction=0){
+  page.classList.remove('page-flip-next','page-flip-prev');
+  render(idx);
+  if(!direction)return;
+  void page.offsetWidth;
+  page.classList.add(direction>0?'page-flip-next':'page-flip-prev');
+}
+
+let swipePointerId=null,swipeStartX=0,swipeStartY=0,swipeStartTarget=null,suppressClick=false;
+const SWIPE_THRESHOLD=44;
+function isInteractiveTarget(target){
+  return target instanceof Element && target.closest('button,a,input,textarea,select,summary,[contenteditable="true"]');
+}
+function resetSwipe(){
+  swipePointerId=null;swipeStartTarget=null;page.classList.remove('swipe-dragging');
+}
+page.addEventListener('pointerdown',e=>{
+  if(e.pointerType==='mouse'&&e.button!==0)return;
+  if(isInteractiveTarget(e.target))return;
+  swipePointerId=e.pointerId;swipeStartX=e.clientX;swipeStartY=e.clientY;swipeStartTarget=e.target;
+  page.classList.add('swipe-dragging');
+  page.setPointerCapture?.(e.pointerId);
+});
+page.addEventListener('pointermove',e=>{
+  if(e.pointerId!==swipePointerId)return;
+  const dx=e.clientX-swipeStartX,dy=e.clientY-swipeStartY;
+  if(Math.abs(dx)>10&&Math.abs(dx)>Math.abs(dy)*1.1)e.preventDefault();
+},{passive:false});
+page.addEventListener('pointerup',e=>{
+  if(e.pointerId!==swipePointerId)return;
+  const dx=e.clientX-swipeStartX,dy=e.clientY-swipeStartY;
+  const isHorizontal=Math.abs(dx)>Math.abs(dy)*1.1;
+  const isSwipe=isHorizontal&&Math.abs(dx)>=SWIPE_THRESHOLD&&!isInteractiveTarget(swipeStartTarget);
+  if(isSwipe){
+    suppressClick=true;
+    window.setTimeout(()=>{suppressClick=false},600);
+    selectTab(currentIdx+(dx<0?1:-1));
+  }
+  resetSwipe();
+});
+page.addEventListener('click',e=>{
+  if(!suppressClick)return;
+  e.preventDefault();e.stopPropagation();suppressClick=false;
+},true);
+page.addEventListener('pointercancel',resetSwipe);
+page.addEventListener('lostpointercapture',resetSwipe);
+page.addEventListener('animationend',e=>{
+  if(e.animationName==='page-flip-next'||e.animationName==='page-flip-prev')page.classList.remove('page-flip-next','page-flip-prev');
+});
+
 function render(idx){if(idx===0)renderOverview();else if(idx<=5)renderDay(idx-1);else if(idx===6)renderTodo();else renderTips()}
 
 function findNextEvent(){
